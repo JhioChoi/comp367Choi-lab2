@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout and Build') {
             steps {
-                //GitHub repository
+                // GitHub repository
                 git branch: 'master', url: 'https://github.com/JhioChoi/comp367Choi-lab2'
                 bat "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package"
             }
@@ -24,9 +24,8 @@ pipeline {
             steps {
                 script {
                     bat "mvn org.jacoco:jacoco-maven-plugin:report"
-                    jacoco(execPattern: 'target/.exec')
+                    jacoco(execPattern: 'target/site/jacoco/jacoco.exec')
                 }
-                
             }
         }
         
@@ -54,6 +53,6 @@ pipeline {
                     bat 'docker push jchoi156/jihochoi_comp367_lab2'
                 }
             }
-        }
-    }
+        }
+    }
 }
