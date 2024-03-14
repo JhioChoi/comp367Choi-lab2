@@ -18,5 +18,5 @@ pipeline {
         		bat "mvn clean compile"
         	}
         }
-    }
+    } 
 }
