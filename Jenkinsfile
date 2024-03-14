@@ -32,9 +32,9 @@ pipeline {
         stage("Login to Docker Hub") {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                        bat 'docker login -u jchoi156 -p "pullipsai9"'
-                    }
+                    
+                       bat 'docker login -u jchoi156 -p "pullipsai9"'
+                    
                 }
             }
         }
